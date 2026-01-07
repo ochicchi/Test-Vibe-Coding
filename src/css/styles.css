@@ -1,0 +1,153 @@
+/* ボールのスタイル */
+.ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: ballPop 0.5s ease-out;
+}
+
+/* ボールの色（B-I-N-G-Oの列に基づく） */
+.ball-b {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.ball-i {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.ball-n {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.ball-g {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.ball-o {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: white;
+}
+
+/* ボールのポップアニメーション */
+@keyframes ballPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ボールの光沢効果 */
+.ball::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+}
+
+/* 数字の回転アニメーション */
+@keyframes numberSpin {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(360deg);
+        opacity: 1;
+    }
+}
+
+.spinning {
+    animation: numberSpin 0.1s linear infinite;
+}
+
+/* 数字が選ばれた時のエフェクト */
+@keyframes numberReveal {
+    0% {
+        transform: scale(0.5) rotateY(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotateY(180deg);
+    }
+    100% {
+        transform: scale(1) rotateY(360deg);
+        opacity: 1;
+    }
+}
+
+.reveal {
+    animation: numberReveal 0.8s ease-out;
+}
+
+/* パルスエフェクト */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.pulse-effect {
+    animation: pulse 0.5s ease-in-out 3;
+}
+
+/* 輝きエフェクト */
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.shine-effect {
+    animation: shine 1s ease-in-out 3;
+}
+
+/* スクロールバーのカスタマイズ */
+#historyContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+#historyContainer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+#historyContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+#historyContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
